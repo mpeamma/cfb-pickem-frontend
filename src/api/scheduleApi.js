@@ -1,6 +1,7 @@
+import { get } from "./api";
 
 function getSchedule(year, week) {
-    return fetch(`http://localhost:5000/api/schedule/${year}/${week}`);
+    return get(`schedule/${year}/${week}`);
 }
 
 export { getSchedule }

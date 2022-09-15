@@ -1,5 +1,6 @@
-export function post(url, data, user) {
+import { API_ROOT } from "../config";
 
+export function post(url, data, user) {
     let headers =  {
         "Content-Type": "application/json",
     }
@@ -7,7 +8,7 @@ export function post(url, data, user) {
         headers["Authorization"] = "Bearer " + user.credential
     }
 
-    return fetch(url, {
+    return fetch(API_ROOT + url, {
         method: "POST",
         headers,
         body: JSON.stringify(data)
@@ -19,7 +20,7 @@ export function get(url, user) {
     if(user) {
         headers["Authorization"] = "Bearer " + user.credential
     }
-    return fetch(url, {
+    return fetch(API_ROOT + url, {
         method: "GET",
         headers
     });

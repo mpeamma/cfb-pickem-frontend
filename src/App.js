@@ -6,6 +6,7 @@ import SchedulePage from "./pages/SchedulePage";
 import Header from "./components/Header";
 import GameSetPage from "./pages/GameSet";
 import MyGroupsPage from "./pages/MyGroupsPage";
+import GroupPage from "./pages/GroupPage";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/my-groups" element={<MyGroupsPage />} />
         <Route path="/schedule/:year/:week" element={<SchedulePage />} />
         <Route path="/gameset/:groupId/:year/:week" element={<GameSetPage />} />
+        <Route path="/group/:groupId" element={<GroupPage />}/>
       </Routes>
     </div>
   );
