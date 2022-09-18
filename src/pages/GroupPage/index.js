@@ -8,7 +8,7 @@ import AuthContext from "../../context/AuthContext";
 export default function GroupPage() {
 
     const { groupId } = useParams();
-    const user = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
 
     const [group, setGroup] = useState({});
     const [loading, setLoading] = useState(true);
@@ -30,7 +30,7 @@ export default function GroupPage() {
             <Grid item xs={4}>
                 <Typography>Users</Typography>
                 <Grid>
-                    {group.user_ids && group.user_ids.map(user => <Grid key={user} item xs={12}>
+                    {group.users && group.users.map(user => <Grid key={user} item xs={12}>
                         <Typography>{user}</Typography>
                     </Grid>)}
                 </Grid>

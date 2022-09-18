@@ -9,7 +9,7 @@ export default function MyGroupsPage() {
 
     const [groups, setGroups] = useState([]);
     const [loading, setLoading] = useState(true);
-    const user = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
 
     useEffect(() => {
         if (user) {

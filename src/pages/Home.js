@@ -1,31 +1,31 @@
 import logo from '../assets/logo.svg';
 import { GoogleLogin } from '@react-oauth/google';
+import { Button } from '@mui/material';
+import { useContext, useState } from 'react';
+import CreateGroupModal from '../components/CreateGroupModal';
+import AuthContext from '../context/AuthContext';
 
 function Home() {
+
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const { setUser } = useContext(AuthContext);
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
         <GoogleLogin
           onSuccess={credentialResponse => {
             console.log(credentialResponse);
             localStorage.setItem("credentials", JSON.stringify(credentialResponse));
+            setUser(credentialResponse);
           }}
           onError={() => {
             console.log('Login Failed');
           }}
         />
+        <Button onClick={() => setModalOpen(true)}>Create Group</Button>
+        <CreateGroupModal open={modalOpen} handleClose={() => setModalOpen(false)} />
       </header>
     </div>
   );

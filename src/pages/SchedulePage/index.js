@@ -21,7 +21,7 @@ export default function SchedulePage() {
     const [yearNum, setYearNum] = useState(year);
     
 
-    const user = React.useContext(AuthContext);
+    const { user } = React.useContext(AuthContext);
     const navigate = useNavigate();
 
     useEffect(() => {

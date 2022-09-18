@@ -15,7 +15,7 @@ export default function GameSetPage() {
     const [loading, setLoading] = useState(true);
     const [selectedTeams, setSelectedTeams] = useState({});
 
-    const user = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
 
     useEffect(() => {
         getGameset(groupId, year, week)
