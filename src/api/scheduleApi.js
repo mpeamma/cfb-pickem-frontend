@@ -4,4 +4,8 @@ function getSchedule(year, week) {
     return get(`schedule/${year}/${week}`);
 }
 
-export { getSchedule }
+function getCurrentWeek() {
+    return get(`schedule/current`);
+}
+
+export { getSchedule, getCurrentWeek }

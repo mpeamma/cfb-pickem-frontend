@@ -1,3 +1,26 @@
-.game-item:hover {
+.game-item {
+    display: flex;
+    justify-content: center;
+    padding: 0 !important;
+}
+
+.select-game:hover {
     background-color: lightblue;
 }
+
+.select-team:hover {
+    background-color: lightblue;
+}
+
+.selected {
+    background-color: lightblue;
+}
+
+.team-side {
+    padding: 8px;
+}
+
+.team-name {
+    margin: auto !important;
+}
+

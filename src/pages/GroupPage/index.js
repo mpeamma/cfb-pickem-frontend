@@ -20,7 +20,7 @@ export default function GroupPage() {
                 setLoading(false);
                 setGroup(body);
             })
-    }, [groupId])
+    }, [groupId, user])
 
     return <PageContainer title="Group" loading={loading}>
         <Grid container rowSpacing={2} spacing={2}>

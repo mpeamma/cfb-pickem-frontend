@@ -11,14 +11,13 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
 import SportsFootballIcon from '@mui/icons-material/SportsFootball';
 import { Link } from 'react-router-dom';
 
 
 const pages = [ { name: 'Home', url: "/"}, 
                 { name: 'My Groups', url: "/my-groups"},
-                { name: 'Schedule', url: "/schedule/2022/2"}];
+                { name: 'Schedule', url: "/schedule"}];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const Header = () => {
