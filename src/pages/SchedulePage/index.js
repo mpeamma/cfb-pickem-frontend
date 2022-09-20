@@ -12,7 +12,7 @@ import PageContainer from '../../components/PageContainer';
 
 export default function SchedulePage() {
 
-    const { year, week } = useParams();
+    const { groupId, year, week } = useParams();
 
     const [schedule, setSchedule] = useState([]);
     const [selectedGames, setSelectedGames] = useState([]);
@@ -65,27 +65,28 @@ export default function SchedulePage() {
 
     const onSubmit = () => {
         var body = {
-            "id": "foo",
-            "group_id": "12345",
+            "group_id": groupId,
             "games": selectedGames,
-            "year": Number(year),
-            "week": Number(week)
+            "year": Number(yearNum),
+            "week": Number(weekNum)
         }
         createGameset(body, user)
     }
 
-    return (<PageContainer title="Schedule" loading={loading}>
+    return (<PageContainer title={`${yearNum} - Week ${weekNum} Schedule`} loading={loading}>
         <Grid container rowSpacing={2} spacing={2}>
-            <Grid item xs={6}><Typography>Select games for your group: </Typography></Grid>
-            <Grid item xs={4}><Button variant="contained" onClick={onSubmit}>Submit</Button></Grid>
-            <Grid item xs={2}>
-            <Select
-                value={weekNum}
-                label="Week"
-                onChange={selectWeek}
-            >
-                {[...Array(15).keys()].map(w => <MenuItem key={w} value={w + 1}>{w + 1}</MenuItem>)}
-            </Select>
+            {groupId ? <>
+                <Grid item xs={5}><Typography>Select games for your group: </Typography></Grid>
+                <Grid item xs={3}><Button variant="contained" onClick={onSubmit}>Submit</Button></Grid>
+            </> : <Grid item xs={8} />}
+            <Grid item xs={4} style={{textAlign: "right"}}>
+                <Typography style={{display: "inline"}}>Week: </Typography>
+                <Select
+                    value={weekNum}
+                    onChange={selectWeek}
+                >
+                    {[...Array(15).keys()].map(w => <MenuItem key={w} value={w + 1}>{w + 1}</MenuItem>)}
+                </Select>
             </Grid>
             {schedule.map((game, idx) => <Grid key={idx} item xs={12}>
                 <GameCard 

@@ -17,6 +17,7 @@ function App() {
         <Route path="/my-groups" element={<MyGroupsPage />} />
         <Route path="/schedule/:year/:week" element={<SchedulePage />} />
         <Route path="/schedule" element={<SchedulePage />} />
+        <Route path="/gameset/:groupId/:year/:week/edit" element={<SchedulePage />} />
         <Route path="/gameset/:groupId/:year/:week" element={<GameSetPage />} />
         <Route path="/group/:groupId" element={<GroupPage />}/>
       </Routes>

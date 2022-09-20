@@ -1,3 +1,4 @@
+import { Typography } from "@mui/material";
 import "./Container.css";
 
 
@@ -8,7 +9,7 @@ export default function PageContainer(props) {
   }
 
   return <div className="container">
-    {props.title && <h4>{props.title}</h4>}
+    {props.title && <Typography variant="h4" className="container-title">{props.title}</Typography>}
     {props.children}
   </div>
 }

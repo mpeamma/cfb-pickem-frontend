@@ -24,7 +24,9 @@ export default function MyGroupsPage() {
 
     return (<PageContainer title="My Groups" loading={loading}>
         <Grid container rowSpacing={2} spacing={2}>
-            {groups.map((group, idx) => <GroupCard group={group} key={idx}/>)}
+            {groups.map((group, idx) => <Grid item xs={12}>
+                <GroupCard group={group} key={idx}/>
+            </Grid>)}
         </Grid>
     </PageContainer>);
 }
