@@ -43,10 +43,14 @@ export default function GroupPage() {
                 </Paper>
             </Grid>
             
+            {group.gamesets &&
             <Grid item xs={8}>
                 <Grid container spacing={2}>
                     {[...Array(15).keys()].map(weekNumber => <Grid key={weekNumber} item xs={12}>
-                        <Link to={`/gameset/${group.id}/2022/${weekNumber + 1}`} style={{textDecoration: "none", pointerEvents: "none"}}>
+                        <Link 
+                            to={`/gameset/${group.id}/2022/${weekNumber + 1}`} 
+                            className={`gameset-link ${!group.gamesets.find(g => g.week == weekNumber + 1) && "invalid"}`}
+                        >
                             <ItemCard>
                                 <Typography>
                                     Week {weekNumber + 1}
@@ -58,7 +62,7 @@ export default function GroupPage() {
                         </Link>
                     </Grid>)}
                 </Grid>
-            </Grid>
+            </Grid>}
         </Grid>
     </PageContainer> 
 }

@@ -3,3 +3,12 @@
   margin-left: 15px;
   margin-bottom: 1vh;
 }
+
+.gameset-link {
+  text-decoration: none;
+}
+
+.invalid > div {
+  pointer-events: none;
+  background-color: gray !important;
+}
