@@ -8,7 +8,10 @@
   text-decoration: none;
 }
 
-.invalid > div {
+.invalid {
   pointer-events: none;
+}
+
+.invalid > div {
   background-color: gray !important;
 }

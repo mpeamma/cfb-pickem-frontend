@@ -1,4 +1,4 @@
-import { Grid, Paper, Typography } from "@mui/material";
+import { Alert, Button, ButtonBase, Grid, Paper, Snackbar, Typography } from "@mui/material";
 import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom"
 import { getGroup } from "../../api/groupApi";
@@ -7,6 +7,7 @@ import AuthContext from "../../context/AuthContext";
 import ItemCard from "../../components/ItemCard";
 import EditIcon from '@mui/icons-material/Edit';
 import "./GroupPage.css";
+import { toast } from "react-toastify";
 
 export default function GroupPage() {
 
@@ -54,7 +55,7 @@ export default function GroupPage() {
                             <ItemCard>
                                 <Typography>
                                     Week {weekNumber + 1}
-                                    <Link to={`/gameset/${group.id}/2022/${weekNumber + 1}/edit`} style={{float: "right"}}>
+                                    <Link to={`/gameset/${group.id}/2022/${weekNumber + 1}/edit`} style={{float: "right", pointerEvents: "all"}}>
                                         <EditIcon />
                                     </Link>
                                 </Typography>

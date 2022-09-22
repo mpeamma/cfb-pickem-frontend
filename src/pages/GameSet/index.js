@@ -1,6 +1,7 @@
 import { Button, Grid } from '@mui/material';
 import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { getGameset } from '../../api/gamesetApi';
 import { getMySelections, makeSelections } from '../../api/selectionApi';
 import GameCard from '../../components/GameCard';
@@ -55,7 +56,7 @@ export default function GameSetPage() {
                 game_set_id: gameset.id
             })
         })
-        makeSelections(body, user).then(resp => console.log(resp))
+        makeSelections(body, user).then(resp => toast.success("Picks submitted"))
     }
 
     console.log(selectedTeams)

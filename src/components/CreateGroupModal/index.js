@@ -5,6 +5,7 @@ import { createGroup } from "../../api/groupApi";
 import "./CreateGroupModal.css";
 import AuthContext from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export default function CreateGroupModal(props) {
 
@@ -35,7 +36,8 @@ export default function CreateGroupModal(props) {
     onSubmit: (values) => {
       createGroup(values, user)
         .then(resp => resp.json())
-        .then(body => navigate(`/group/${body.id}`))
+        .then(body => navigate(`/group/${body.id}`));
+      toast.success("Group created");
     },
   });
 

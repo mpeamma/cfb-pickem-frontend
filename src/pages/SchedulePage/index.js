@@ -9,6 +9,7 @@ import GameCard from '../../components/GameCard';
 import AuthContext from "../../context/AuthContext";
 import { useParams, useNavigate } from 'react-router-dom';
 import PageContainer from '../../components/PageContainer';
+import { toast } from 'react-toastify';
 
 export default function SchedulePage() {
 
@@ -70,7 +71,7 @@ export default function SchedulePage() {
             "year": Number(yearNum),
             "week": Number(weekNum)
         }
-        createGameset(body, user)
+        createGameset(body, user).then(() => toast.success("Games selected"));
     }
 
     return (<PageContainer title={`${yearNum} - Week ${weekNum} Schedule`} loading={loading}>
